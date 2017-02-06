@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NgCookingXModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="userID" />
+      <PropertyRef Name="recipeId" />
+    </Key>
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="150" />
+    <Property Name="comment" Type="varchar" MaxLength="250" />
+    <Property Name="mark" Type="int" />
+    <Property Name="recipeId" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Communaute">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="firstname" Type="varchar" MaxLength="250" />
+    <Property Name="surname" Type="varchar" MaxLength="250" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="250" />
+    <Property Name="password" Type="varchar" MaxLength="250" />
+    <Property Name="level" Type="int" />
+    <Property Name="picture" Type="varchar" MaxLength="250" />
+    <Property Name="city" Type="varchar" MaxLength="250" />
+    <Property Name="birth" Type="varchar" MaxLength="4" />
+    <Property Name="bio" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="isAvailable" Type="bit" Nullable="false" />
+    <Property Name="picture" Type="varchar" MaxLength="250" />
+    <Property Name="calories" Type="int" />
+    <Property Name="category" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Liste">
+    <Key>
+      <PropertyRef Name="ingredientId" />
+      <PropertyRef Name="recipeId" />
+    </Key>
+    <Property Name="ingredientId" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="recipeId" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recettes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="250" />
+    <Property Name="creatorId" Type="int" />
+    <Property Name="isAvailable" Type="bit" Nullable="false" />
+    <Property Name="picture" Type="varchar" MaxLength="250" />
+    <Property Name="calories" Type="int" />
+    <Property Name="preparation" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Comment__recipeI__300424B4">
+    <End Role="Recettes" Type="Self.Recettes" Multiplicity="1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recettes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="recipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comment__userID__2F10007B">
+    <End Role="Communaute" Type="Self.Communaute" Multiplicity="1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Communaute">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingredien__categ__267ABA7A">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Liste__ingredien__32E0915F">
+    <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+    <End Role="Liste" Type="Self.Liste" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredient">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Liste">
+        <PropertyRef Name="ingredientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Liste__recipeId__33D4B598">
+    <End Role="Recettes" Type="Self.Recettes" Multiplicity="1" />
+    <End Role="Liste" Type="Self.Liste" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recettes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Liste">
+        <PropertyRef Name="recipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recettes__creato__2B3F6F97">
+    <End Role="Communaute" Type="Self.Communaute" Multiplicity="0..1" />
+    <End Role="Recettes" Type="Self.Recettes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Communaute">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Recettes">
+        <PropertyRef Name="creatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NgCookingXModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Communaute" EntityType="Self.Communaute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Liste" EntityType="Self.Liste" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recettes" EntityType="Self.Recettes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Comment__recipeI__300424B4" Association="Self.FK__Comment__recipeI__300424B4">
+      <End Role="Recettes" EntitySet="Recettes" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comment__userID__2F10007B" Association="Self.FK__Comment__userID__2F10007B">
+      <End Role="Communaute" EntitySet="Communaute" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingredien__categ__267ABA7A" Association="Self.FK__Ingredien__categ__267ABA7A">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Ingredient" EntitySet="Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Liste__ingredien__32E0915F" Association="Self.FK__Liste__ingredien__32E0915F">
+      <End Role="Ingredient" EntitySet="Ingredient" />
+      <End Role="Liste" EntitySet="Liste" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Liste__recipeId__33D4B598" Association="Self.FK__Liste__recipeId__33D4B598">
+      <End Role="Recettes" EntitySet="Recettes" />
+      <End Role="Liste" EntitySet="Liste" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recettes__creato__2B3F6F97" Association="Self.FK__Recettes__creato__2B3F6F97">
+      <End Role="Communaute" EntitySet="Communaute" />
+      <End Role="Recettes" EntitySet="Recettes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

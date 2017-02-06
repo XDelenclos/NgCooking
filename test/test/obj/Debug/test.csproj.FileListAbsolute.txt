@@ -1,0 +1,8 @@
+C:\Users\C17 Developer\Documents\XavierProject\NgCooking\test\test\bin\Debug\test.exe.config
+C:\Users\C17 Developer\Documents\XavierProject\NgCooking\test\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+C:\Users\C17 Developer\Documents\XavierProject\NgCooking\test\test\bin\Debug\test.exe
+C:\Users\C17 Developer\Documents\XavierProject\NgCooking\test\test\bin\Debug\test.pdb
+C:\Users\C17 Developer\Documents\XavierProject\NgCooking\test\test\bin\Debug\Newtonsoft.Json.dll
+C:\Users\C17 Developer\Documents\XavierProject\NgCooking\test\test\bin\Debug\Newtonsoft.Json.xml
+C:\Users\C17 Developer\Documents\XavierProject\NgCooking\test\test\obj\Debug\test.exe
+C:\Users\C17 Developer\Documents\XavierProject\NgCooking\test\test\obj\Debug\test.pdb

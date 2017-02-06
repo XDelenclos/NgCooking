@@ -1,0 +1,164 @@
+﻿@model NgCooking.Models.RecipesViewModel
+
+<section class="section">
+    <div class="row">
+        <div class="col-xs-4">
+            <img class="recette_img" src='@Url.Content("~/Content/"+Model.recette.picture)' alt="@Model.recette.name">
+        </div>
+        <div class="col-xs-8">
+            <h1 class="rec_name">@Model.recette.name</h1>
+            <p class="rec_note">
+                <span class="stars">
+                    @for (int i = 0; i < Model.recette.Comment.Average(c => c.mark); i++)
+                    {
+                        <span class="star glyphicon glyphicon-heart"></span>
+                    }
+
+                </span>
+                <span class="notes">| 4,8/5 - 120 votes</span>
+            </p>
+            <div class="ingredients_list">
+                <p class="list-title">Ingrédients</p>
+                <ul class="list">
+                    @foreach (var ingredient in Model.recette.Ingredient)
+                    {
+                        <li class="item">
+                            <img class="item-img" src='@Url.Content("~/Content/img/ingredients/"+ingredient.picture)' alt=@ingredient.name>
+                            <p class="item-name" title="tomate">@ingredient.name</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <p class="rec_cal">Valeur calorique <span class="for">(100g)</span> : <span class="val">@Model.recette.calories kcal</span></p>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="overline-title"><span class="text">Préparation</span></h2>
+        </div>
+        <div class="col-xs-12">
+            @Html.Raw(Model.recette.preparation)
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="overline-title"><span class="text">Commentaires</span></h2>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel">
+                <div class="filters">
+                    <h3 class="panel_title">Donnez-nous votre avis !</h3>
+                    <form action="">
+                        <div class="filter">
+                            <p><label for="">Notez cette recette</label></p>
+                            <p>
+                                <select name="" id="">
+                                    <option value="5">5</option>
+                                    <option value="4">4</option>
+                                    <option value="3">3</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="filter">
+                            <p><label for="">Le titre de votre commentaire</label></p>
+                            <p><input type="text" placeholder="ex: Amazingue !" required></p>
+                        </div>
+                        <div class="filter">
+                            <p><label for="">Votre commentaire</label></p>
+                            <textarea name="" id="" class="wide" placeholder="ex: Franchement cette NgRecette, c’est de la bombe. Le genre de saveurs qui t’éveillent les papilles, t’as vu ! Woula, j’ai kiffé" required></textarea>
+                        </div>
+                        <div class="ar">
+                            <input type="submit" class="btn btn_color1" value="Poster !">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <ul class="comments">
+                <li class="comment">
+                    <p class="name">Miam miam miaouuu<span class="note">4/5</span></p>
+                    <p class="by">par <a href='@Url.Action("details", new { controller = "Community", id = Model.recette.creatorId })'>Béné du 34</a></p>
+                    <p class="text">Franchement cette NgRecette, c’est de la bombe. Le genre de saveurs qui t’éveillent les papilles, t’as vu ! Woula, j’ai kiffé</p>
+                </li>
+                <li class="comment">
+                    <p class="name">Ca pique !<span class="note">2/5</span></p>
+                    <p class="by">par <a href='@Url.Action("details", new { controller = "Community", id = Model.recette.creatorId })'>Ades Vapor</a></p>
+                    <p class="text">Quelqu'un a mis du piment dans ma sauce, j'ai passé mon dimanche au toilettes. Sinon, tout va bien..</p>
+                </li>
+            </ul>
+            <div class="row showmore">
+                <div class="col-xs-12">
+                    <button type="button" class="btn btn_grey"><span class="glyphicon glyphicon-chevron-down"></span>Afficher d'avantage</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <h2 class="title">~ Vous aimerez aussi... ~</h2>
+    <div class="recettes row">
+        <div class="col-xs-6 col-sm-3 recette">
+            <a href='@Url.Action("recipesDetails", "Recipes")'>
+                <img src='@Url.Content("~/Content/img/recettes/tajine-de-poulet.jpg")' alt="Le tajine de ta maman">
+                <div class="top" title="note : 2,4/5">
+                    <span class="note">
+                        <span class="glyphicon glyphicon-heart"></span>
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </span>
+                </div>
+                <div class="bot">
+                    <p class="name">Tajine de poulet</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-3 recette">
+            <a href='@Url.Action("recipesDetails", "Recipes")'>
+                <img src='@Url.Content("~/Content/img/recettes/tajine-de-poulet.jpg")' alt="Le tajine de ta maman">
+                <div class="top" title="note : 2,4/5">
+                    <span class="note">
+                        <span class="glyphicon glyphicon-heart"></span>
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </span>
+                </div>
+                <div class="bot">
+                    <p class="name">Tajine de poulet</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-3 recette">
+            <a href='@Url.Action("recipesDetails", "Recipes")'>
+                <img src='@Url.Content("~/Content/img/recettes/tajine-de-poulet.jpg")' alt="Le tajine de ta maman">
+                <div class="top" title="note : 2,4/5">
+                    <span class="note">
+                        <span class="glyphicon glyphicon-heart"></span>
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </span>
+                </div>
+                <div class="bot">
+                    <p class="name">Tajine de poulet</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-3 recette">
+            <a href='@Url.Action("recipesDetails", "Recipes")'>
+                <img src='@Url.Content("~/Content/img/recettes/tajine-de-poulet.jpg")' alt="Le tajine de ta maman">
+                <div class="top" title="note : 2,4/5">
+                    <span class="note">
+                        <span class="glyphicon glyphicon-heart"></span>
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </span>
+                </div>
+                <div class="bot">
+                    <p class="name">Tajine de poulet</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>

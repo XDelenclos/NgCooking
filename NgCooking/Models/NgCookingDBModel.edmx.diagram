@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="73ee84a5f47e472da6102905ebff6de6" Name="Diagram1" ZoomLevel="70">
+        <EntityTypeShape EntityType="NgCookingXModel.Categories" Width="1.5" PointX="14.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NgCookingXModel.Comment" Width="1.5" PointX="12.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NgCookingXModel.Communaute" Width="1.5" PointX="9.625" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NgCookingXModel.Ingredient" Width="1.5" PointX="12.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NgCookingXModel.Recettes" Width="1.5" PointX="12.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NgCookingXModel.sysdiagrams" Width="1.5" PointX="0.5" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="NgCookingXModel.FK__Ingredien__categ__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="NgCookingXModel.FK__Comment__recipeI__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="NgCookingXModel.FK__Comment__userID__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="NgCookingXModel.FK__Recettes__creato__2B3F6F97" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="NgCookingXModel.Liste" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="NgCookingXModel.AspNetRoles" Width="1.5" PointX="6.625" PointY="7.125" />
+        <EntityTypeShape EntityType="NgCookingXModel.AspNetUserClaims" Width="1.5" PointX="2.875" PointY="4" />
+        <EntityTypeShape EntityType="NgCookingXModel.AspNetUserLogins" Width="1.5" PointX="2.875" PointY="2" />
+        <EntityTypeShape EntityType="NgCookingXModel.AspNetUsers" Width="1.5" PointX="6.625" PointY="2.125" />
+        <EntityTypeShape EntityType="NgCookingXModel.C__MigrationHistory" Width="1.5" PointX="0.5" PointY="0.5" />
+        <AssociationConnector Association="NgCookingXModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="NgCookingXModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="NgCookingXModel.AspNetUserRoles" />
+        <AssociationConnector Association="NgCookingXModel.FK__AspNetUsers__Id__76969D2E" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NgCookingXModelStoreContainer" CdmEntityContainer="NgCookingXEntities1">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="NgCookingXModel.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="NgCookingXModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+          <ScalarProperty Name="mark" ColumnName="mark" />
+          <ScalarProperty Name="recipeId" ColumnName="recipeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Communaute">
+      <EntityTypeMapping TypeName="NgCookingXModel.Communaute">
+        <MappingFragment StoreEntitySet="Communaute">
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="birth" ColumnName="birth" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingredient">
+      <EntityTypeMapping TypeName="NgCookingXModel.Ingredient">
+        <MappingFragment StoreEntitySet="Ingredient">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isAvailable" ColumnName="isAvailable" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+          <ScalarProperty Name="calories" ColumnName="calories" />
+          <ScalarProperty Name="category" ColumnName="category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recettes">
+      <EntityTypeMapping TypeName="NgCookingXModel.Recettes">
+        <MappingFragment StoreEntitySet="Recettes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="creatorId" ColumnName="creatorId" />
+          <ScalarProperty Name="isAvailable" ColumnName="isAvailable" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+          <ScalarProperty Name="calories" ColumnName="calories" />
+          <ScalarProperty Name="preparation" ColumnName="preparation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="NgCookingXModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Liste" TypeName="NgCookingXModel.Liste" StoreEntitySet="Liste">
+      <EndProperty Name="Ingredient">
+        <ScalarProperty Name="id" ColumnName="ingredientId" />
+      </EndProperty>
+      <EndProperty Name="Recettes">
+        <ScalarProperty Name="id" ColumnName="recipeId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
